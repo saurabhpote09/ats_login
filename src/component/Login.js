@@ -5,7 +5,7 @@ const Login = () => {
     return (
         <div className='bg-[#F7F7F8] min-h-screen flex flex-col gap-10 items-center px-4 sm:px-6 lg:px-8 pt-16  '>
             <div>
-                <img src={logo} alt="Logo" className='' />
+                <img src={logo} alt="Logo" className=''/>
             </div>
             <div className='bg-white p-6 sm:p-8 lg:p-10 w-full max-w-md shadow-lg'>
                 <h1 className='text-[24px] sm:text-[28px] font-bold text-center leading-[42px]'>Sign in to your account</h1>
