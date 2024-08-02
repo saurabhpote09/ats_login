@@ -4,8 +4,10 @@ import Signup from './component/Signup'
 
 const App = () => {
   return (
-    // <Login/>
+    <>
+    <Login/>
     <Signup/>
+    </>
   )
 }
 
