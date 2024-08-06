@@ -19,8 +19,10 @@ const Header = ({ setIsNavshow, isNavshow }) => {
                 <img src={Logo} alt="V-Maintain Logo" className="" />
 
 
-                <select class="bg-[#F7F7F8] border-[#EAEAEA] border text-gray-900 text-sm rounded block p-2.5 font-medium">
-                    <option sty className=' '>Workspace Name</option>
+                <select class="bg-[#F7F7F8] border-[#EAEAEA] border min-w-[320px] text-gray-900 text-sm rounded block p-2.5 font-medium">
+                <option className="text-gray-700">Option 1</option>
+        <option className="text-gray-700">Option 2</option>
+        <option className="text-gray-700">Option 3</option>
                 </select>
 
 

@@ -22,7 +22,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="px-6 py-4 h-full flex flex-col bg-gray-100">
+        <nav className="px-6 py-4 h-full min-h-screen flex flex-col bg-gray-100">
             <ul className="flex flex-col gap-y-2">
                 {navItems.map((item, index) => (
                     <li
@@ -30,7 +30,7 @@ const Navbar = () => {
                         className={`flex items-center p-3 gap-x-3 rounded transition duration-300 ${activeTab === item.label ? 'bg-[#E7D5FF]' : 'hover:bg-[#E7D5FF]'}`}
 
                     >
-                        <img src={item.src} alt={item.alt} className='size-5' />
+                        <img src={item.src} alt={item.alt} className={`size-5`}  />
                         <span className="font-medium text-sm">{item.label}</span>
                     </li>
                 ))}

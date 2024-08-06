@@ -6,10 +6,11 @@ import Input from '../component/Input';
 import Button from '../component/Button';
 import Links from '../component/Links';
 import Subtitle from '../component/Subtitle';
+import Checkbox from '../component/Checkbox';
 
 const Signup = () => {
     return (
-        <div className='bg-[#F7F7F8] min-h-screen flex flex-col gap-10 items-center px-4 sm:px-6 lg:px-8 justify-center'>
+        <div className='bg-[#F7F7F8] min-h-screen flex flex-col gap-10 items-center py-4 sm:py-6 lg:py-8 justify-center '>
             <div>
                 <img src={logo} alt="Logo"/>
             </div>
@@ -47,7 +48,7 @@ const Signup = () => {
                     </div>
                     <div className='mb-6 sm:mb-10'>
                         <div className='flex items-center gap-x-3 mb-4 sm:mb-0'>
-                            <input type="checkbox" className='w-4 h-4 accent-[#882EFD] bg-[#F7F7F8] rounded' />
+                            <Checkbox/>
                             <p className='text-xs leading-4 font-medium text-black '>
                                 I agree to ATS's  <span className='font-semibold text-[#882EFD] cursor-pointer'>Terms of Service.</span>
                             </p>

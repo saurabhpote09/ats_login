@@ -6,6 +6,8 @@ import ForgetPassword from './pages/ForgetPassword'
 import ResetPassword from './pages/ResetPassword'
 import VerifyAccount from './pages/VerifyAccount'
 import ATSdashboard from './pages/ATSdashboard'
+import ATSprofile from './pages/ATSprofile'
+import ATSclient from './pages/ATSclient'
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
           <Route path='/reset-password' element={<ResetPassword />} />
           <Route path='/verify-account' element={<VerifyAccount />} />
           <Route path='/dashboard' element={<ATSdashboard />} />
+          <Route path='/profile' element={<ATSprofile />} />
+          <Route path='/client' element={<ATSclient />} />
         </Routes>
       </BrowserRouter>
     </>
