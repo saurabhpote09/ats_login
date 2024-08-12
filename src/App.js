@@ -8,6 +8,8 @@ import VerifyAccount from './pages/VerifyAccount'
 import ATSdashboard from './pages/ATSdashboard'
 import ATSprofile from './pages/ATSprofile'
 import ATSclient from './pages/ATSclient'
+import ATSsite from './pages/ATSsite'
+import ATSsite1 from './pages/ATSsite1'
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
           <Route path='/dashboard' element={<ATSdashboard />} />
           <Route path='/profile' element={<ATSprofile />} />
           <Route path='/client' element={<ATSclient />} />
+          <Route path='/site' element={<ATSsite />} />
+          <Route path='/site1' element={<ATSsite1 />} />
         </Routes>
       </BrowserRouter>
     </>

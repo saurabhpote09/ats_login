@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import dashboard from '../assets/icon/dashboard.svg';
 import sites from '../assets/icon/sites.svg';
-import tags from '../assets/icon/tags.svg';
-import projects from '../assets/icon/projects.svg';
-import clients from '../assets/icon/clients.svg';
 import team from '../assets/icon/team.svg';
-import support from '../assets/icon/support.svg';
 import setting from '../assets/icon/setting.svg';
 
-const Navbar = () => {
-    const [activeTab, setActiveTab] = useState('Dashboard');
+const Navbar = ({activeTab}) => {
+    
 
     const navItems = [
         { src: dashboard, alt: 'Dashboard', label: 'Dashboard' },
@@ -22,7 +18,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="px-6 py-4 h-full min-h-screen flex flex-col bg-gray-100">
+        <nav className="px-6 py-4 h-full lg:min-h-screen flex flex-col bg-gray-100">
             <ul className="flex flex-col gap-y-2">
                 {navItems.map((item, index) => (
                     <li
