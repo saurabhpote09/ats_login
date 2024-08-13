@@ -4,13 +4,14 @@ import dashboard from '../assets/icon/dashboard.svg';
 import sites from '../assets/icon/sites.svg';
 import team from '../assets/icon/team.svg';
 import setting from '../assets/icon/setting.svg';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Navbar = ({activeTab}) => {
     
-
+const navigate = useNavigate()
     const navItems = [
-        { src: dashboard, alt: 'Dashboard', label: 'Dashboard' },
-        { src: sites, alt: 'Sites', label: 'Sites' },
+        { src: dashboard, alt: 'Dashboard', label: 'Dashboard', navigate :'/dashboard' },
+        { src: sites, alt: 'Sites', label: 'Sites', navigate:'/site' },
 
         { src: team, alt: 'Team', label: 'Team' },
 
@@ -24,6 +25,7 @@ const Navbar = ({activeTab}) => {
                     <li
                         key={index}
                         className={`flex items-center p-3 gap-x-3 rounded transition duration-300 ${activeTab === item.label ? 'bg-[#E7D5FF]' : 'hover:bg-[#E7D5FF]'}`}
+                        onClick={()=>{navigate(item.navigate)}}
 
                     >
                         <img src={item.src} alt={item.alt} className={`size-5`}  />

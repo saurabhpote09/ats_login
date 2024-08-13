@@ -10,8 +10,10 @@ import downarrow from '../assets/icon/downArrow.svg';
 import restart from '../assets/icon/restart.svg';
 import Logo from '../assets/ATS.svg';
 import profile from '../assets/icon/profile.svg';
+import { useNavigate } from 'react-router-dom';
 
 const Header = ({ setIsNavshow, isNavshow }) => {
+    const navigate = useNavigate()
     return (
         <header className="flex flex-wrap justify-between items-center w-full p-4 border-b ">
             <div className="flex items-center mb-1 md:mb-0 gap-x-10 gap-y-4 lg:gap-[131px] w-full flex-wrap md:flex-nowrap md:w-[40%]">
@@ -26,14 +28,14 @@ const Header = ({ setIsNavshow, isNavshow }) => {
                 </select>
             </div>
             <div className="flex items-center justify-end gap-2 lg:gap-4 w-full md:w-auto">
-                <img src={search} alt="Search" className="hidden md:block" />
-                <img src={notification} alt="Notifications" className="hidden md:block" />
-                <img src={restart} alt="Restart" className="hidden md:block" />
-                <img src={question} alt="Help" className="hidden md:block" />
-                <img src={bell} alt="Alerts" className="hidden md:block" />
-                <img src={add} alt="Add" className="hidden md:block" />
-                <img src={profile} alt="Profile" className="hidden md:block" />
-                <img src={downarrow} alt="Profile Dropdown" className="hidden md:block" />
+                <img src={search} alt="Search" className="hidden sm:block" />
+                <img src={notification} alt="Notifications" className="hidden sm:block" />
+                <img src={restart} alt="Restart" className="hidden sm:block" />
+                <img src={question} alt="Help" className="hidden sm:block" />
+                <img src={bell} alt="Alerts" className="hidden sm:block" />
+                <img src={add} alt="Add" className="hidden sm:block" />
+                <img src={profile} alt="Profile" className="hidden sm:block cursor-pointer" onClick={()=>{navigate('/profile')}} />
+                <img src={downarrow} alt="Profile Dropdown" className="hidden sm:block" />
             </div>
         </header>
     );

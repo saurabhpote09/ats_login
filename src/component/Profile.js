@@ -13,47 +13,47 @@ const Profile = () => {
         <h1 className="font-medium text-base leading-[18px] mb-6 ">
           Edit Your Profile
         </h1>
-        <div className="flex gap-6">
+        <div className="flex md:flex-row flex-col gap-6">
           <div>
             <img src={profile} />
           </div>
           <div className="flex-1">
-            <div className="flex justify-center gap-4 mb-4 items-center">
-              <div className="w-1/2 ">
+            <div className="flex justify-center md:flex-row flex-col gap-4 mb-4 items-center">
+              <div className="md:w-1/2 w-full  ">
                 <Label htmlFor="fname" text="First Name" />
                 <Input type="text" id="fname" />
               </div>
-              <div className="w-1/2">
+              <div className="md:w-1/2 w-full">
                 <Label htmlFor="lname" text="Last Name" />
                 <Input type="text" id="lname" />
               </div>
             </div>
-            <div className="flex justify-center gap-4 mb-4 items-center">
-              <div className="w-1/2">
+            <div className="flex justify-center md:flex-row flex-col gap-4 mb-4 items-center">
+              <div className="md:w-1/2">
                 <Label htmlFor="email" text="Email" />
                 <Input type="email" id="email" />
               </div>
-              <div className="w-1/2">
+              <div className="md:w-1/2">
                 <Label htmlFor="address" text="Address" />
                 <Input type="text" id="address" />
               </div>
             </div>
-            <div className="flex justify-center gap-4 mb-4 items-center">
-              <div className="w-1/2">
+            <div className="flex justify-center md:flex-row flex-col gap-4 mb-4 items-center">
+              <div className="md:w-1/2 w-full">
                 <Label htmlFor="country" text="Country" />
                 <Select></Select>
               </div>
-              <div className="w-1/2">
+              <div className="md:w-1/2 w-full">
                 <Label htmlFor="city" text="City" />
                 <Select></Select>
               </div>
             </div>
-            <div className="flex justify-center gap-4 mb-6 items-center">
-              <div className="w-1/2 ">
+            <div className="flex justify-center md:flex-row flex-col gap-4 mb-6 items-center">
+              <div className="md:w-1/2 w-full ">
                 <Label htmlFor="phone" text="Phone Number" />
                 <Input type="text" id="phone" />
               </div>
-              <div className="w-1/2">
+              <div className="md:w-1/2">
                 <Label htmlFor="orgname" text="Organization Name" />
                 <Input type="text" id="orgname" />
               </div>
