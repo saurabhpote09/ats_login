@@ -4,7 +4,7 @@ const Checkbox = () => {
   return (
     <input
       type="checkbox"
-      className="w-4 h-4 accent-[#882EFD] bg-[#F7F7F8] rounded appearance-none border-none checked:appearance-auto outline-none"
+      className="w-4 h-4 accent-[#882EFD] bg-[#F7F7F8] rounded appearance-none border-none checked:appearance-auto outline-none focus:ring-transparent"
     />
   );
 };

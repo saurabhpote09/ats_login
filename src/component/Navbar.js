@@ -7,7 +7,6 @@ import setting from '../assets/icon/setting.svg';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({activeTab}) => {
-    
 const navigate = useNavigate()
     const navItems = [
         { src: dashboard, alt: 'Dashboard', label: 'Dashboard', navigate :'/dashboard' },
@@ -19,7 +18,7 @@ const navigate = useNavigate()
     ];
 
     return (
-        <nav className="px-6 py-4 h-full lg:min-h-screen flex flex-col bg-gray-100">
+        <nav className="px-6 py-4 h-full lg:min-h-screen flex flex-col bg-gray-100 border-r border-[#EAEAEA]">
             <ul className="flex flex-col gap-y-2">
                 {navItems.map((item, index) => (
                     <li

@@ -7,7 +7,7 @@ import wMark from '../assets/icon/W_Mark_2_.svg'
 function CheckBox() {
   return (
     <>
-      <input type="checkbox" className="w-4 h-4 accent-[#882EFD] bg-[#F7F7F8] rounded appearance-none border-none checked:appearance-auto outline-none selection:border-none focus:ring-transparent" />
+      <input type="checkbox" className="w-4 h-4 accent-[#882EFD] border border-[#EAEAEA] rounded appearance-none checked:appearance-auto outline-none selection:border-none focus:ring-transparent" />
     </>
   );
 }
