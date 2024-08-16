@@ -4,7 +4,7 @@ import dashboard from '../assets/icon/dashboard.svg';
 import sites from '../assets/icon/sites.svg';
 import team from '../assets/icon/team.svg';
 import setting from '../assets/icon/setting.svg';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({activeTab}) => {
     
@@ -13,7 +13,7 @@ const navigate = useNavigate()
         { src: dashboard, alt: 'Dashboard', label: 'Dashboard', navigate :'/dashboard' },
         { src: sites, alt: 'Sites', label: 'Sites', navigate:'/site' },
 
-        { src: team, alt: 'Team', label: 'Team' },
+        { src: team, alt: 'Team', label: 'Team', navigate:'/client' },
 
         { src: setting, alt: 'Settings', label: 'Settings' },
     ];
@@ -24,7 +24,7 @@ const navigate = useNavigate()
                 {navItems.map((item, index) => (
                     <li
                         key={index}
-                        className={`flex items-center p-3 gap-x-3 rounded transition duration-300 ${activeTab === item.label ? 'bg-[#E7D5FF]' : 'hover:bg-[#E7D5FF]'}`}
+                        className={`flex items-center p-3 gap-x-3 rounded transition duration-300 cursor-pointer ${activeTab === item.label ? 'bg-[#E7D5FF]' : 'hover:bg-[#E7D5FF]'}`}
                         onClick={()=>{navigate(item.navigate)}}
 
                     >

@@ -10,6 +10,7 @@ const ATSprofile = () => {
   return (
     <>
     
+    
       <Header setIsNavshow={setIsNavshow} isNavshow={isNavshow} />
       <div className="flex flex-col lg:flex-row">
         {isNavshow ? (

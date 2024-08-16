@@ -6,19 +6,19 @@ import Client from "../component/Client";
 
 const ATSclient = () => {
   const [isNavshow, setIsNavshow] = useState(true);
-  const [activeTab, setActiveTab] = useState('Dashboard');
+  const [activeTab, setActiveTab] = useState('Team');
   return (
     <>
       <Header setIsNavshow={setIsNavshow} isNavshow={isNavshow} />
       <div className="flex flex-col lg:flex-row">
         {isNavshow ? (
-          <div className=" basis-full xl:basis-[15%] lg:basis-1/5">
+          <div className=" basis-full xl:basis-[15%] lg:basis-1/5 h-screen sticky top-0">
             <Navbar isNavshow={isNavshow} activeTab={activeTab} />
           </div>
         ) : (
           ""
         )}
-        <div className="flex-1 p-6">
+        <div className="flex-1 p-6 overflow-auto no-scrollbar">
           <Client />
           <Footer />
         </div>

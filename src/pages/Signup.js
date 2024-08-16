@@ -7,8 +7,10 @@ import Button from '../component/Button';
 import Links from '../component/Links';
 import Subtitle from '../component/Subtitle';
 import Checkbox from '../component/Checkbox';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
+    const navigate = useNavigate()
     return (
         <div className='bg-[#F7F7F8] min-h-screen flex flex-col gap-10 items-center py-4 sm:py-6 lg:py-8 justify-center '>
             <div>
@@ -22,29 +24,41 @@ const Signup = () => {
                 <form>
                     <div className='flex justify-center gap-x-4 flex-col sm:flex-row'>
                         <div className='mb-4'>
+                            <div className='flex flex-col gap-y-2'>
                             <Label htmlFor="fname" text="First Name" />
                             <Input type="text" id="fname" />
+                            </div>
                         </div>
                         <div className='mb-4'>
+                            <div className='flex flex-col gap-y-2'>
                             <Label htmlFor="lname" text="Last Name" />
                             <Input type="text" id="lname" />
+                            </div>
                         </div>
                     </div>
                     <div className='mb-4'>
+                        <div className='flex flex-col gap-y-2'>
                         <Label htmlFor="email" text="Email" />
                         <Input type="email" id="email" />
+                        </div>
                     </div>
                     <div className='mb-4'>
+                        <div className='flex gap-y-2 flex-col'>
                         <Label htmlFor="number" text="Contact Number" />
                         <Input type="tel" id="number" />
+                        </div>
                     </div>
                     <div className='mb-4'>
+                        <div className='flex flex-col gap-y-2'>
                         <Label htmlFor="password" text="Password" />
                         <Input type="password" id="password" />
+                        </div>
                     </div>
                     <div className='mb-4'>
+                        <div className='flex flex-col gap-y-2'>
                         <Label htmlFor="confirm-password" text="Confirm Password" />
                         <Input type="password" id="confirm-password" />
+                        </div>
                     </div>
                     <div className='mb-6 sm:mb-10'>
                         <div className='flex items-center gap-x-3 mb-4 sm:mb-0'>
@@ -54,7 +68,11 @@ const Signup = () => {
                             </p>
                         </div>
                     </div>
+                    <div onClick={()=>{
+                        navigate('/verify-account')
+                    }}>
                     <Button text="Sign up" />
+                    </div>
                     <p className='font-normal text-xs text-center mt-4'>
                         Already have an ATS account? <Links text="Sign in" to="/" />
                     </p>

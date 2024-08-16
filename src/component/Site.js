@@ -1,6 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import client from "../assets/clientphoto.svg";
+import siteUrl from "../assets/icon/siteUrl.svg";
+
+import wMark from '../assets/icon/W_Mark_2_.svg'
+
+function CheckBox() {
+  return (
+    <>
+      <input type="checkbox" className="w-4 h-4 accent-[#882EFD] bg-[#F7F7F8] rounded appearance-none border-none checked:appearance-auto outline-none selection:border-none focus:ring-transparent" />
+    </>
+  );
+}
+
+function Tabledata({ data, children }) {
+  return (
+    <>
+      <td className="font-normal text-sm leading-4 p-3">
+        {data}
+        {children}
+      </td>
+    </>
+  );
+}
+
 const Site = () => {
+  const [columns, setColumns] = useState({
+    Status: true,
+    Site: true,
+    SiteURL: true,
+    Updates: true,
+    Plugins: true,
+    Themes: true,
+    LastSync: true,
+    SiteHealth: true,
+    StatusCode: false,
+    Connected: false,
+    Client: false,
+    Tag: false,
+  });
+
+  const handleCheckboxChange = (column) => {
+    setColumns((prevColumns) => ({
+      ...prevColumns,
+      [column]: !prevColumns[column],
+    }));
+  };
+  const [isShow, setIsShow] = useState(false);
   const online = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +95,7 @@ const Site = () => {
           <h1 className="text-lg font-medium">Sites</h1>
           <div className="flex items-center gap-x-3">
             <p className="font-normal text-sm leading-4">Shows</p>
-            <select className="border border-[#EAEAEA] font-medium text-base leading-4 py-1 px-7">
+            <select className="w-[72px] h-9 text-center border border-[#EAEAEA] rounded shadow-sm ">
               <option>10</option>
             </select>
             <p className="font-normal text-sm leading-4">entries</p>
@@ -115,38 +160,151 @@ const Site = () => {
         </div>
       </div>
 
-      <div className="border border-[#EAEAEA] rounded">
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-white">
+      
+        <div className="overflow-x-auto border border-[#EAEAEA] rounded">
+          <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-[#F7F7F8]">
-                <th className="p-2 w-[3%]">
-                  <input
-                    type="checkbox"
-                    className="border rounded border-[#EAEAEA]"
-                  />
+                <th className="p-2">
+                  <div className = 'flex justify-center items-center'>
+                  <CheckBox />
+                  </div>
                 </th>
-                <th className="font-semibold text-sm p-2 text-start w-[7%]">
-                  Status
-                </th>
-                <th className="font-semibold text-sm p-2 text-start w-[2%]"></th>
-                <th className="font-semibold text-sm p-2 text-start w-[15%]">
-                  Sites
-                </th>
-                <th className="font-semibold text-sm p-2 text-start flex gap-2 items-center">
-                  <span>Site URL</span>
-                </th>
-                <th className="font-semibold text-sm p-2 text-start w-[10%]">
-                  Client
-                </th>
-                <th className="font-semibold text-sm p-2 text-start w-[20%]">
-                  Tag
-                </th>
-                <th className="font-semibold text-sm p-2 text-center w-[10%]">
-                  Updates
-                </th>
-                <th className="font-semibold text-sm p-2 text-center w-[10%]">
+                {columns.Status && (
+                  <th className="font-semibold text-sm p-2 text-start ">
+                    Status
+                  </th>
+                )}
+
+                <th className="font-semibold text-sm p-2 text-start "></th>
+                {columns.Site && (
+                  <th className="font-semibold text-sm p-2 text-start ">
+                    Sites
+                  </th>
+                )}
+                {columns.SiteURL && (
+                  <th className="font-semibold text-sm p-2 text-start flex gap-2 items-center">
+                    <div className="flex items-center gap-x-4">
+                      <img src={siteUrl} alt="" />
+                      <span>Site URL</span>
+                    </div>
+                  </th>
+                )}
+                {columns.Client && (
+                  <th className="font-semibold text-sm p-2 text-start ">
+                    Client
+                  </th>
+                )}
+                {columns.Tag && (
+                  <th className="font-semibold text-sm p-2 text-start ">
+                    Tag
+                  </th>
+                )}
+                {columns.Updates && (
+                  <th className="font-semibold text-sm p-2 text-center ">
+                    Updates
+                  </th>
+                )}
+
+                <th className="font-semibold text-sm p-2 text-center ">
                   WordPress
+                </th>
+                {columns.Plugins && (
+                  <th className="font-semibold text-sm p-2 text-center ">
+                    Plugins
+                  </th>
+                )}
+
+                {columns.Themes && (
+                  <th className="font-semibold text-sm p-2 text-center ">
+                    Themes
+                  </th>
+                )}
+
+                {columns.LastSync && (
+                  <th className="font-semibold text-sm p-2 text-start">
+                    Last Syn
+                  </th>
+                )}
+                {columns.SiteHealth && (
+                  <th className="font-semibold text-sm p-2 text-start ">
+                    Site Health
+                  </th>
+                )}
+                {columns.StatusCode && (
+                  <th className="font-semibold text-sm p-2 text-start ">
+                    Status Code
+                  </th>
+                )}
+                {columns.Connected && (
+                  <th className="font-semibold text-sm p-2 text-start ">
+                    Connected
+                  </th>
+                )}
+
+                <th className="p-2 flex justify-center items-center">
+                  <div class="relative inline-block text-left">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setIsShow(!isShow);
+                        }}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z"
+                            stroke="#1C1C1C"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M12 8V16"
+                            stroke="#1C1C1C"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M8 12H16"
+                            stroke="#1C1C1C"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
+                    {isShow ? (
+                      <div class="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <div class="" role="none">
+                          {Object.keys(columns).map((column) => (
+                            <div
+                              key={column}
+                              className="px-4 py-2 flex justify-start items-center gap-x-3 bg-[#F4EBFF] border border-white"
+                            >
+                              <input
+                                type="checkbox"
+                                checked={columns[column]}
+                                onChange={() => handleCheckboxChange(column)}
+                                className="w-4 h-4 accent-[#882EFD] bg-[#F7F7F8] rounded appearance-none border-none checked:appearance-auto outline-none selection:border-none focus:ring-transparent"
+                              />
+                              <label className="font-normal text-sm leading-[18px]">
+                                {column}
+                              </label>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
                 </th>
               </tr>
             </thead>
@@ -224,59 +382,90 @@ const Site = () => {
                 },
               ].map((site, index) => (
                 <tr key={index} className="bg-white border-b border-[#EAEAEA]">
-                  <td className="flex items-center justify-center p-2">
-                    <input
-                      type="checkbox"
-                      className="border rounded border-[#EAEAEA]"
-                    />
+                  <td className=" p-3">
+                    <CheckBox />
                   </td>
-                  <td className="font-normal text-sm leading-4 p-3">
-                    {site.status}
-                  </td>
-                  <td className="font-normal text-sm leading-4 p-3">
-                    <div>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                      >
-                        <path
-                          d="M10 0.6C11.2692 0.6 12.5 0.848333 13.6583 1.33833C15.8842 2.28 17.72 4.11583 18.6608 6.34083C19.1517 7.5 19.4 8.73083 19.4 10C19.4 11.2692 19.1517 12.5 18.6617 13.6583C17.7317 15.8575 15.87 17.7258 13.6592 18.6608C12.5 19.1517 11.2692 19.4 10 19.4C8.73083 19.4 7.5 19.1517 6.34167 18.6617C4.14333 17.7317 2.27417 15.8692 1.33917 13.6592C0.848333 12.5 0.6 11.2692 0.6 10C0.6 8.73083 0.848333 7.5 1.33833 6.34167C2.28 4.11583 4.11667 2.27917 6.34167 1.33833C7.5 0.848333 8.73083 0.6 10 0.6ZM10 0C4.4775 0 0 4.4775 0 10C0 15.5225 4.4775 20 10 20C15.5225 20 20 15.5225 20 10C20 4.4775 15.5225 0 10 0Z"
-                          fill="#1C1C1C"
-                        />
-                        <path
-                          d="M1.66675 9.99984C1.66675 13.2982 3.58341 16.149 6.36342 17.4998L2.38841 6.60817C1.92591 7.64484 1.66675 8.7915 1.66675 9.99984ZM15.6259 9.579C15.6259 8.549 15.2559 7.83567 14.9392 7.28067C14.5167 6.594 14.1209 6.01317 14.1209 5.3265C14.1209 4.56067 14.7017 3.84734 15.5201 3.84734C15.5567 3.84734 15.5917 3.8515 15.6276 3.854C14.1451 2.49567 12.1692 1.6665 10.0001 1.6665C7.08842 1.6665 4.52758 3.16067 3.03758 5.42234C3.23341 5.429 3.41758 5.43234 3.57341 5.43234C4.44508 5.43234 5.79425 5.3265 5.79425 5.3265C6.24341 5.29984 6.29592 5.95984 5.84758 6.01317C5.84758 6.01317 5.39592 6.06567 4.89425 6.09234L7.92841 15.119L9.75258 9.64984L8.45425 6.09234C8.00592 6.0665 7.58008 6.01317 7.58008 6.01317C7.13091 5.9865 7.18425 5.30067 7.63341 5.3265C7.63341 5.3265 9.00925 5.43234 9.82841 5.43234C10.7001 5.43234 12.0501 5.3265 12.0501 5.3265C12.4992 5.29984 12.5517 5.95984 12.1034 6.01317C12.1034 6.01317 11.6517 6.06567 11.1501 6.09234L14.1617 15.0498L15.0217 12.3257C15.4017 11.1357 15.6259 10.2923 15.6259 9.579ZM10.1467 10.7282L7.64592 17.9932C8.39258 18.2132 9.18175 18.3332 10.0001 18.3332C10.9701 18.3332 11.9017 18.1657 12.7676 17.8607C12.7451 17.8248 12.7251 17.7873 12.7076 17.7457L10.1467 10.7282ZM17.3126 6.0015C17.3484 6.2665 17.3684 6.5515 17.3684 6.85817C17.3684 7.70317 17.2101 8.654 16.7342 9.84317L14.1892 17.2023C16.6676 15.7582 18.3334 13.074 18.3334 9.99984C18.3334 8.55067 17.9634 7.189 17.3126 6.0015Z"
-                          fill="#1C1C1C"
-                        />
-                      </svg>
-                    </div>
-                  </td>
-                  <td className="font-normal text-sm leading-4 p-3">
-                    {site.sites}
-                  </td>
-                  <td className="font-normal text-sm leading-4 p-3">
-                    <a href={site.siteurl} className="text-[#1976D2] underline">
-                      {site.siteurl}
-                    </a>
-                  </td>
-                  <td className="font-normal text-sm leading-4 p-3">
-                    <img src={site.client} alt="client" />
-                  </td>
-                  <td className="font-normal text-sm leading-4 p-3">
-                    {site.tag}
-                  </td>
-                  <td className="font-normal text-sm leading-4 p-3">
-                    <div className="px-4 py-[6px] text-white bg-[#882EFD] text-center m-auto w-12 h-7 rounded">
-                      0
-                    </div>
-                  </td>
-                  <td className="font-normal text-sm leading-4 p-3 text-center">
+                  {columns.Status && <Tabledata data={site.status} />}
+
+                  <Tabledata>
+                   <img src={wMark} alt="" className="w-4 h-4" />
+                  </Tabledata>
+                  {columns.Site && <Tabledata data={site.sites} />}
+
+                  {columns.SiteURL && (
+                    <Tabledata>
+                      <div className="flex items-center gap-x-4">
+                        <img src={siteUrl} alt="" />
+                        <a href={site.siteurl} className="">
+                          {site.siteurl}
+                        </a>
+                      </div>
+                    </Tabledata>
+                  )}
+
+                  {columns.Client && (
+                    <td className="font-normal text-sm leading-4 p-3">
+                      <img src={site.client} alt="client" />
+                    </td>
+                  )}
+                  {columns.Tag && <Tabledata data={site.tag} />}
+
+                  {columns.Updates && (
+                    <Tabledata>
+                      <div className="px-4 py-[6px] text-white bg-[#882EFD] text-center m-auto w-12 h-7 rounded">
+                        0
+                      </div>
+                    </Tabledata>
+                  )}
+
+                  <Tabledata>
                     <div className="px-4 py-[6px] text-white bg-black text-center m-auto w-12 h-7 rounded">
                       0
                     </div>
-                  </td>
+                  </Tabledata>
+                  {columns.Plugins && (
+                    <Tabledata className="font-normal text-sm leading-4 p-3">
+                      <div className="px-4 py-[6px] text-white bg-[#F9B023] text-center m-auto w-12 h-7 rounded">
+                        0
+                      </div>
+                    </Tabledata>
+                  )}
+
+                  {columns.Themes && (
+                    <Tabledata className="font-normal text-sm leading-4 p-3">
+                      <div className="px-4 py-[6px] text-white bg-[#00B656] text-center m-auto w-12 h-7 rounded">
+                        0
+                      </div>
+                    </Tabledata>
+                  )}
+
+                  {columns.LastSync && (
+                    <Tabledata className="font-normal text-sm leading-4 p-3">
+                      May 24, 2024 - 4:52 PM
+                    </Tabledata>
+                  )}
+
+                  {columns.SiteHealth && (
+                    <Tabledata className="font-normal text-sm leading-4 p-3 ">
+                      <div className="flex gap-2 items-center">
+                        <div className="size-3 rounded-full bg-[#00B656] "></div>
+                        <p>Good</p>
+                      </div>
+                    </Tabledata>
+                  )}
+
+                  {columns.StatusCode && (
+                    <Tabledata className="font-normal text-sm leading-4 p-3">
+                      0 - OK
+                    </Tabledata>
+                  )}
+
+                  {columns.Connected && (
+                    <Tabledata className="font-normal text-sm leading-4 p-3">
+                      May 01, 2024
+                    </Tabledata>
+                  )}
+                  
                 </tr>
               ))}
             </tbody>
@@ -313,7 +502,6 @@ const Site = () => {
               </div>
               <div className="size-7 rounded-full bg-[#882EFD] flex justify-center items-center">
                 <p className="font-medium text-xs leading-4 text-white">1</p>
-                
               </div>
               <div className="size-7 rounded-full border border-[#882EFD] flex justify-center items-center">
                 <svg
@@ -332,7 +520,6 @@ const Site = () => {
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 };

@@ -10,7 +10,7 @@ const Client = () => {
           <h1 className="text-lg font-medium">Client</h1>
           <div className="flex items-center gap-x-3">
             <p className="font-normal text-sm leading-4">Shows</p>
-            <select className="border border-[#EAEAEA] font-medium text-base leading-4 py-1 px-7">
+            <select className="w-[72px] h-9 text-center border border-[#EAEAEA] rounded shadow-sm ">
               <option>10</option>
             </select>
             <p className="font-normal text-sm leading-4">entries</p>

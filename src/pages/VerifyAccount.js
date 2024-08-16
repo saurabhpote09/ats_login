@@ -16,7 +16,7 @@ const VerifyAccount = () => {
     <div className='bg-white p-6 sm:p-8 lg:p-10 w-full max-w-md shadow-lg'>
         <div className=' mb-6 sm:mb-10'>
         <Title title={'Verify your account'} />
-        <Subtitle subtitle={'We have sent a code to: abc@pqr.com '} />
+        <Subtitle subtitle={`We have sent a code to: ${<span className='underline'>abc@pqr.com</span>}`} />
         <Subtitle subtitle={'Please check your email and enter the code we sent.'} />
         </div>
         <form>

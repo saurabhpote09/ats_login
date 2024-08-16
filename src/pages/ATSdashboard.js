@@ -18,7 +18,7 @@ const ATSdashboard = () => {
         ) : (
           ""
         )}
-        <div className="flex-1 p-6">
+        <div className="flex-1 p-2 sm:p-6 h-screen overflow-auto no-scrollbar">
          <Dashboard/>
           <Footer />
         </div>

@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Card = ({ icon, number, label, trendIcon, trend }) => {
+const Card = ({ icon, number, label, trendIcon, trend , textColour }) => {
     return (
         
-        <div className="grid grid-cols-3 grid-rows-2 gap-0 justify-center items-center shadow-md rounded-lg p-6 border">
+        <div className="grid grid-cols-3 grid-rows-2 gap-0 justify-center items-center shadow-md rounded-lg p-6 border h-[112px] ">
         <div className="col-start-1 row-start-1 row-span-2 bg-gray-100 rounded-full h-12 w-12 flex items-center justify-center">
           <img src={icon} alt={label} aria-label={label} />
         </div>
@@ -12,7 +12,7 @@ const Card = ({ icon, number, label, trendIcon, trend }) => {
         </div>
         <div className="col-start-3 row-start-1 flex items-center justify-end gap-1">
           <img src={trendIcon} alt="Trend" aria-label="Trend Icon" />
-          <span className='text-sm font-medium text-[#00B656]'>{trend}</span>
+          <span className={`text-sm font-medium ${textColour === 'green' ? ' text-[#00B656]': 'text-[#EA4242]'}`}>{trend}</span>
         </div>
         <div className="col-start-2 col-span-2 row-start-2 flex ">
           <div className="text-black text-base  font-medium">{label}</div>

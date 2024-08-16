@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Header from '../component/Header';
 import Navbar from '../component/Navbar';
 import Footer from '../component/Footer';
-import Site from '../component/Site';
 import Site1 from '../component/Site1';
 
 const ATSsite1 = () => {
