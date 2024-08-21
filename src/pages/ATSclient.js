@@ -12,7 +12,7 @@ const ATSclient = () => {
       <Header setIsNavshow={setIsNavshow} isNavshow={isNavshow} />
       <div className="flex flex-col lg:flex-row">
         {isNavshow ? (
-          <div className=" basis-full xl:basis-[15%] lg:basis-1/5 h-screen sticky top-0">
+          <div className=" basis-full xl:basis-[15%] lg:basis-1/5 h-screen ">
             <Navbar isNavshow={isNavshow} activeTab={activeTab} />
           </div>
         ) : (

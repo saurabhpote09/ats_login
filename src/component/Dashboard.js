@@ -134,12 +134,12 @@ const Dashboard = () => {
           </div>
 
           <div className="flex flex-col">
-            <div className="-m-1.5 overflow-x-auto">
-              <div className="p-1.5 min-w-full inline-block align-middle">
-                <div className="overflow-hidden">
-                  <table className="min-w-full divide-y divide-gray-200 border ">
+            <div className="overflow-x-auto -m-1.5">
+              <div className="inline-block min-w-full align-middle p-1.5">
+                <div className="overflow-auto">
+                  <table className="min-w-full border divide-y divide-gray-200">
                     <thead>
-                      <tr className="bg-[#F7F7F8] ">
+                      <tr className="bg-[#F7F7F8] w-full">
                         <TableHeading text={"Client Name"} />
                         <TableHeading text={"Email"} />
                         <TableHeading text={"Contact"} />
@@ -168,22 +168,20 @@ const Dashboard = () => {
                           email: "swati.s@diginnovator...",
                           contact: "+91 89283 64682",
                         },
-                      ].map((person) => {
-                        return (
-                          <tr>
-                            <TableData data={person.fname} />
-                            <TableData data={person.email} />
-                            <TableData data={person.contact} />
-                            <td className="px-3 py-3 whitespace-nowrap text-end text-sm font-medium">
-                              <div className="flex justify-center gap-4">
-                                <img src={site} alt="Site" />
-                                <img src={eye} alt="View" />
-                                <img src={edit} alt="Edit" />
-                              </div>
-                            </td>
-                          </tr>
-                        );
-                      })}
+                      ].map((person, index) => (
+                        <tr key={index}>
+                          <TableData data={person.fname} />
+                          <TableData data={person.email} />
+                          <TableData data={person.contact} />
+                          <td className="px-3 py-3 whitespace-nowrap text-end text-sm font-medium">
+                            <div className="flex justify-center gap-4 ">
+                              <img src={site} alt="Site" />
+                              <img src={eye} alt="View" />
+                              <img src={edit} alt="Edit" />
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>
@@ -208,12 +206,7 @@ const Dashboard = () => {
                 <td className="p-3 font-semibold text-base leading-4 text-center">
                   07
                 </td>
-                <td className="p-3">
-                  <div className="flex justify-end items-center gap-4">
-                    <img src={eye} alt="View" />
-                    <img src={group} alt="Group" />
-                  </div>
-                </td>
+                <td className="px-3 py-3 whitespace-nowrap text-end text-sm font-medium"></td>
               </tr>
               <tr className="bg-[#F7F7F8] border-b border-[#EAEAEA]">
                 <td className="p-3 font-normal text-sm leading-4">Plugins</td>
@@ -353,16 +346,16 @@ const Dashboard = () => {
               <div className="flex justify-between items-end">
                 <div className="flex items-center gap-2">
                   <div className="w-[12px] h-[12px] bg-[#882EFD] rounded-full"></div>
-                <Subtitle text={'Responses : 276(69%)'} />
+                  <Subtitle text={"Responses : 276(69%)"} />
                 </div>
-                <Subtitle text={'Total Sent - 400'}/>
+                <Subtitle text={"Total Sent - 400"} />
               </div>
               <div className="flex justify-between">
                 <div className="flex items-center gap-2">
                   <div className="w-[12px] h-[12px] bg-[#E6E8EA] rounded-full"></div>
-                  <Subtitle text={'Non Responses : 124(31%)'}/>
+                  <Subtitle text={"Non Responses : 124(31%)"} />
                 </div>
-                <Subtitle text={'Comments - 240'}/>
+                <Subtitle text={"Comments - 240"} />
               </div>
             </div>
           </div>
